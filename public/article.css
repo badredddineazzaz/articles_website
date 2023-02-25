@@ -1,0 +1,82 @@
+.article-page-container{
+    display: flex;
+    gap: 5vh;
+    flex-wrap: wrap;
+    margin-top: 5vh;
+
+}
+.article-container{
+    flex: 60%;
+}
+
+.card-author{
+    margin-bottom: 2vh;
+
+}
+.card-img{
+    width: 100%;
+    margin-bottom: 2vh;
+    border-radius: 20px;
+}
+.card-title{
+    font-size: 30px;
+    text-decoration: solid;
+    font-family: 'Prata', serif;
+}
+.card-details{
+    display: 	flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.card-content{
+    position: static;
+    padding: 0;
+    font-size: 20px;
+    text-align: justify;
+}
+
+
+
+
+
+.suggestion-article{
+    flex: 35%;
+    position: sticky;
+    top: 20px;
+}
+
+.line-card-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+.line-card{
+    display: flex;
+    gap: 2vh;
+    max-height: 100px;
+    height: 100px;
+}
+.line-card-img{
+    width: 50%;
+    height: 100%;
+    border-radius: 10px;
+}
+.line-card .line-card-title{
+    color: #e7e7e7;
+    text-decoration: solid;
+    text-decoration: underline;
+}
+.line-card-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.line-card .card-author{
+    
+    font-size: 1rem;
+}
+.line-card .card-author img{
+    width: 40px;
+    height: 40px;
+}

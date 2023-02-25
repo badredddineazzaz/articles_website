@@ -12,9 +12,14 @@
 
 
 </head>
-
 <body>
-
+    <div class="navbar">
+        <div class="logo">Articles</div>
+        <div class="links">
+            <a href="./views/add-article.php">Add article</a>
+            <a href="#">Edit article</a>
+        </div>
+    </div>
     <div class="container">
         <div class="topic">
             Latest Releases
