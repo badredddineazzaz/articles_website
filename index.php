@@ -1,3 +1,8 @@
+<?php
+    require_once("./controllers/db_connection.php");
+    $sql = "SELECT * FROM article";
+    $result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,65 +48,42 @@
             </div>
             <div class="small-cards">
 
-                <a class="small-card " href="#"
-                    style="background:url('https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;">
-                    <div class="card-content">
-                        <h2 class="card-title">Small Card Title 4</h2>
-                        <p class="card-description">This is the description of small card 4.</p>
-                        <div class="card-author">
-                            <img src="https://via.placeholder.com/50x50" alt="Author Image">
-                            <div class="card-author-info">
-                                <p class="card-author-name">Tom Smith</p>
-                                <p class="card-publish-date">Published on May 25, 2022</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+            <?php
 
-                <div class="small-card"
-                    style="background: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;">
+
+  
+            // execute the SQL statement
+            $result = mysqli_query($conn, $sql);
+            
+            // check for errors
+            if (!$result) {
+                die("Query failed: " . mysqli_error($conn));
+            }
+            
+            // display the results
+            while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <a class="small-card" href="#"
+                    style="background: url('<?= $row["img"] ?>') no-repeat center center/cover;">
                     <div class="card-content">
-                        <h2 class="card-title">Small Card Title 4</h2>
+                        <h2 class="card-title"><?= $row["title"] ?></h2>
                         <p class="card-description">Nature</p>
                         <div class="card-author">
                             <img src="https://via.placeholder.com/50x50" alt="Author Image">
                             <div class="card-author-info">
-                                <p class="card-author-name">Tom Smith</p>
-                                <p class="card-publish-date">Published on May 25, 2022</p>
+                                <p class="card-author-name"><?= $row["author"] ?></p>
+                                <p class="card-publish-date"><?= $row["date"] ?></p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
+              
+            <?php
+            }
+            ?>
 
-                <div class="small-card"
-                    style="background:url('https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;">
-                    <div class="card-content">
-                        <h2 class="card-title">Small Card Title 4</h2>
-                        <p class="card-description">This is the description of small card 4.</p>
-                        <div class="card-author">
-                            <img src="https://via.placeholder.com/50x50" alt="Author Image">
-                            <div class="card-author-info">
-                                <p class="card-author-name">Tom Smith</p>
-                                <p class="card-publish-date">Published on May 25, 2022</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        
 
-                <div class="small-card"
-                    style="background:url('https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;">
-                    <div class="card-content">
-                        <h2 class="card-title">Small Card Title 4</h2>
-                        <p class="card-description">This is the description of small card 4.</p>
-                        <div class="card-author">
-                            <img src="https://via.placeholder.com/50x50" alt="Author Image">
-                            <div class="card-author-info">
-                                <p class="card-author-name">Tom Smith</p>
-                                <p class="card-publish-date">Published on May 25, 2022</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
